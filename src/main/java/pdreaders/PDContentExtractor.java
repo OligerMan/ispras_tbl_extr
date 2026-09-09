@@ -429,10 +429,10 @@ public class PDContentExtractor extends PDFTextStripper {
         if (containsWhitespace(text)) return false;
 
         // Check if the text position is not directed (rotated)
-        //if (tp.getDir() != 0) {
-        //    //System.err.println("WARNING: a directed text was ignored");
-        //    return false;
-        //}
+        if (tp.getDir() != 0) {
+            //System.err.println("WARNING: a directed text was ignored");
+            return false;
+        }
         // Check if the font of the text position is not null
         PDFFont font = getFont(tp);
         if (null == font) {
